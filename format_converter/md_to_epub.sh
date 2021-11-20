@@ -8,5 +8,6 @@ then
     exit 1
 fi
 
-script_dir=$(cd $(dirname ${FILE}); pwd)
-~/pandoc/pandoc-2.16.1/bin/pandoc $1 -o $1.epub --epub-metadata=${script_dir}/epub_metadata.yaml
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+~/pandoc/pandoc-2.16.1/bin/pandoc $1 -o $1.epub --metadata-file=${script_dir}/epub_metadata.yaml
